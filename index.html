@@ -4,20 +4,55 @@
   <head>
     <meta charset="utf-8">
     <title>A+</title>
-    <!-- Пример подключения стилей из папки css -->
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
-    <!-- Пример вставки изображения из папки img -->
-    <img src="img/logo.png" width="182" height="81" alt="A+">
-    <ul>
-      <li><a href="inner.html">Программа обучения</a></li>
-      <li><a href="#">Выпускники</a></li>
-      <li><a href="#">Как поступить</a></li>
-      <li><a href="#">Контакты</a></li>
-    </ul>
-  </nav>
+  <header class="page-header">
+
+    <nav class="main-nav">
+        <a class="main-nav__logo"><img src="img/img-header-logo.png" width="182" height="82" alt="A+"></a>
+      <ul class="main-nav__list">
+        <li class="main-nav__item"><a href="inner.html">Программа обучения</a></li>
+        <li class="main-nav__item"><a href="#">Выпускники</a></li>
+        <li class="main-nav__item"><a href="#">Как поступить</a></li>
+        <li class="main-nav__item"><a href="#">Контакты</a></li>
+      </ul>
+    </nav>
+
+      <section class="promo">
+          <div class="promo__content"><b class="promo__caption"></b>
+              <p class="promo__text"></p>
+              <a class="btn"></a>
+          </div>
+      </section>
+
+  </header>
+
+  <main class="container">
+
+      <section class="features">
+          <div class="features__item">
+              <h2 class="features__title"></h2>
+              <p class="features__text"></p>
+          </div>
+          <div class="features__item">
+              <h2 class="features__title"></h2>
+              <p class="features__text"></p>
+          </div>
+          <div class="features__item">
+              <h2 class="features__title"></h2>
+              <p class="features__text"></p>
+          </div>
+      </section>
+
+      <section class="reviews">
+          <header class="reviews__header">
+              <h2 class="reviews__title"></h2>
+              <a href="" class="reviews__all"><span></span><span></span><span></span></a></header>
+      </section>
+
+  </main>
 
   </body>
 </html>
