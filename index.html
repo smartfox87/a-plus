@@ -59,13 +59,18 @@
         <a href="#" class="reviews__all">Показать все<span></span></a>
         <article class="review">
             <div class="review__info">
-                <img class="review__autor-photo" src="img/img-reviews-portrait.png" width="133" height="133" alt="Фотография">
+                <div class="review__autor-photo">
+                    <img src="img/img-reviews-portrait.png" width="133" height="133"
+                         alt="Фотография">
+                </div>
                 <b class="review__autor-name">Иванов<br>Петр<br>Сергеевич</b>
                 <p class="review__group">Группа: 04-И-15<br>Выпуск: 2009 г.</p>
             </div>
             <div class="review__content">
                 <h2 class="review__title">Тяжело в учении, легко в бою!</h2>
-                <p class="review__text">Во время обучения было очень тяжело, практические занятия требовали усидчивости и гибкости ума. Однако, по прошествии времени, понял, что все это было не зря! Устроился в ведущую студию своего города сразу после выпуска, а проработав там три года основал свою собственную!</p>
+                <p class="review__text">Во время обучения было очень тяжело, практические занятия требовали усидчивости
+                    и гибкости ума. Однако, по прошествии времени, понял, что все это было не зря! Устроился в ведущую
+                    студию своего города сразу после выпуска, а проработав там три года основал свою собственную!</p>
             </div>
         </article>
     </section>
@@ -74,9 +79,11 @@
         <h2 class="feedback__title">Обратная связь</h2>
         <form class="feedback__form" action="index.html" method="post">
             <label for="feedback__full-name" class="feedback__full-name">ФИО:</label>
-            <input id="feedback__full-name" type="text" name="full-name" required placeholder="Представьтесь, пожалуйста">
+            <input id="feedback__full-name" type="text" name="full-name" required
+                   placeholder="Представьтесь, пожалуйста">
             <label for="feedback__age" class="feedback__age">Возраст:</label>
-            <input type="text" id="feedback__age" name="age" required placeholder="Укажите возраст, хотя бы приблизительно">
+            <input type="text" id="feedback__age" name="age" required
+                   placeholder="Укажите возраст, хотя бы приблизительно">
             <div class="feedback__sex">
                 <span>Пол:</span>
                 <input type="radio" id="feedback__male" name="feedback__sex" value="male" required checked>

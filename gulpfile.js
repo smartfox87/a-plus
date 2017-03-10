@@ -15,18 +15,20 @@ var svgmin = require("gulp-svgmin");
 var run = require("run-sequence");
 var del = require("del");
 
-gulp.task("style:work", function() {
+gulp.task("style:work", function () {
     gulp.src("less/style.less")
         .pipe(plumber())
         .pipe(less())
         .pipe(postcss([
-            autoprefixer({browsers: [
-                "last 1 version",
-                "last 2 Chrome versions",
-                "last 2 Firefox versions",
-                "last 2 Opera versions",
-                "last 2 Edge versions"
-            ]}),
+            autoprefixer({
+                browsers: [
+                    "last 1 version",
+                    "last 2 Chrome versions",
+                    "last 2 Firefox versions",
+                    "last 2 Opera versions",
+                    "last 2 Edge versions"
+                ]
+            }),
             mqpacker({
                 sort: true
             })
@@ -34,22 +36,23 @@ gulp.task("style:work", function() {
         .pipe(gulp.dest("css"))
         .pipe(minify())
         .pipe(rename("style.min.css"))
-        .pipe(gulp.dest("css"));
+        .pipe(gulp.dest("css"))
+        .pipe(server.stream());
 });
 
-gulp.task("serve:work", ["style:work"], function() {
+gulp.task("serve:work", ["style:work"], function () {
     server.init({
         server: "."
     });
-    gulp.watch("less/**/*.less", ["style:work"]);
+    gulp.watch("less/**/*.less", ["style:work"]).on("change", server.reload);
     gulp.watch("*.html").on("change", server.reload);
 });
 
-gulp.task("clean", function() {
+gulp.task("clean", function () {
     return del("build");
 });
 
-gulp.task("copy", function() {
+gulp.task("copy", function () {
     return gulp.src([
         "fonts/**/*.{woff,woff2}",
         "img/**",
@@ -61,18 +64,20 @@ gulp.task("copy", function() {
         .pipe(gulp.dest("build"));
 });
 
-gulp.task("style", function() {
+gulp.task("style", function () {
     gulp.src("less/style.less")
         .pipe(plumber())
         .pipe(less())
         .pipe(postcss([
-            autoprefixer({browsers: [
-                "last 1 version",
-                "last 2 Chrome versions",
-                "last 2 Firefox versions",
-                "last 2 Opera versions",
-                "last 2 Edge versions"
-            ]}),
+            autoprefixer({
+                browsers: [
+                    "last 1 version",
+                    "last 2 Chrome versions",
+                    "last 2 Firefox versions",
+                    "last 2 Opera versions",
+                    "last 2 Edge versions"
+                ]
+            }),
             mqpacker({
                 sort: true
             })
@@ -83,7 +88,7 @@ gulp.task("style", function() {
         .pipe(gulp.dest("build/css"));
 });
 
-gulp.task("images", function() {
+gulp.task("images", function () {
     return gulp.src("build/img/**/*.{png,jpg,gif}")
         .pipe(imagemin([
             imagemin.optipng({optimizationLevel: 3}),
@@ -92,7 +97,7 @@ gulp.task("images", function() {
         .pipe(gulp.dest("build/img"));
 });
 
-gulp.task("symbols", function() {
+gulp.task("symbols", function () {
     return gulp.src("build/img/icons/*.svg")
         .pipe(svgmin())
         .pipe(svgstore({
@@ -102,7 +107,7 @@ gulp.task("symbols", function() {
         .pipe(gulp.dest("build/img"));
 });
 
-gulp.task("serve", function() {
+gulp.task("serve", function () {
     server.init({
         server: "build"
     });
@@ -110,7 +115,7 @@ gulp.task("serve", function() {
     gulp.watch("*.html").on("change", server.reload);
 });
 
-gulp.task("build", function(fn) {
+gulp.task("build", function (fn) {
     run(
         "clean",
         "copy",
