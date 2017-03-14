@@ -776,15 +776,6 @@ template {
   padding: 14px 0 14px 57px;
   color: #404040;
 }
-.feedback__sex label:hover::before {
-  border-color: #7f7f7f;
-}
-.feedback__sex label:hover::after {
-  border-color: #7f7f7f;
-}
-.feedback__sex label:focus {
-  border-color: #00b770;
-}
 .feedback__sex label::before {
   position: absolute;
   top: 5px;
@@ -807,6 +798,14 @@ template {
   content: '';
   border: 2px solid #b2b2b2;
   border-radius: 50%;
+}
+.feedback__sex label:hover::before,
+.feedback__sex label:hover::after {
+  border-color: #7f7f7f;
+}
+.feedback__sex label:active::before,
+.feedback__sex label:active::after {
+  border-color: #00b770;
 }
 .feedback__sex input {
   display: none;
